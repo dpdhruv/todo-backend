@@ -53,6 +53,7 @@ var User = sequelize.define(table, {
 //     return bcrypt.compareSync(password, this.password);
 // }
 
+
 sequelize.sync()
     .then(() => {
         console.log(`Table ${table} is created if one doesn't exist`)

@@ -26,25 +26,27 @@ const jwtsecret = require('../config/secret');
       });
   }
 
-    const new_authenticate = params => {
-        return Users.findOne({
-            where: {
-                username: params.username
-            },
-            raw: true
-        }).then(user => {
-            if (!user)
-                throw new Error('Authentication failed. User not found.');
-            const payload = {
-                username: user.username,
-                email: user.email,
-                time: new Date()
-            };
-            var token = jwt.sign(payload, jwtsecret.jwtSecret.jwt_Secret, {
-                expiresIn: jwtsecret.jwtSecret.tokenExpireTime
-            });
-            return token;
+    async function new_authenticate(params){
+        // return Users.findOne({
+        //     where: {
+        //         username: params.username
+        //     },
+        //     raw: true
+        // }).then(user => {
+        //     if (!user)
+        //         throw new Error('Authentication failed. User not found.');
+           
+        // });
+        console.log('Creating token')
+        const payload = {
+            username: params.username,
+            email: params.email,
+            time: new Date()
+        };
+        var token = jwt.sign(payload, jwtsecret.jwtSecret.jwt_Secret, {
+            expiresIn: jwtsecret.jwtSecret.tokenExpireTime
         });
+        return token;
     }
 
 

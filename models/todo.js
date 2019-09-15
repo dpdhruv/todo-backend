@@ -37,34 +37,18 @@ var Todo = sequelize.define(table, {
         allowNull:false
     },
     due_date:{
-        type:Sequelize.DATE
+        type:Sequelize.DATE,
+        allowNull:true
     },
-}, {
-    // hooks: {
-    //     beforeCreate: (user) => {
-    //         const salt = bcrypt.genSaltSync();
-    //         user.password = bcrypt.hashSync(user.password, salt);
-    //         user.referral_token = user.name.split(' ')[0] + '_' + randomize('Aa', 4) + randomize('0', 3);
-    //     },
-    //     beforeUpdate: (user) => {
-    //         const salt = bcrypt.genSaltSync();
-    //         user.password = bcrypt.hashSync(user.password, salt);
-    //     }
-    // },
-});
+}, {});
 
 Todo.belongsTo(User);
-
-
-// User.prototype.validPassword = function (password) {
-//     return bcrypt.compareSync(password, this.password);
-// }
-
 
 sequelize.sync()
     .then(() => {
         console.log(`Table ${table} is created if one doesn't exist`)
     })
     .catch(error => console.log('This error occured', error));
-// export User model for use in other files.;
+
+// export User model for use in other files
 module.exports = Todo;

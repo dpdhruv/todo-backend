@@ -1,0 +1,1 @@
+module.exports.url = process.env.DB_URL || 'postgres://dhsgikqbiryffp:15a2dce54278dc5411abfa654a7cc296b0d41fae3f2de48ba02481644927de9d@ec2-54-225-72-238.compute-1.amazonaws.com:5432/d5udu3publejm5';

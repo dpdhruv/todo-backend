@@ -16,10 +16,8 @@ const checkAuth = (req,res,next) =>{
         message:'Not a valid token'
       })
     }
-    console.log(decoded)
     req.user={
-      username:decoded.username,
-      email:decoded.email
+      userId:decoded.userId
     }
     next();
   })

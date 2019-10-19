@@ -16,7 +16,7 @@ router.route('/auth/user_login')
 
 // Todo Routes //     
 router.route('/auth/create_todo')
-      .post(todoController.create)
+      .post(checkAuth,todoController.create)
 
 router.route('/auth/get_todo')
       .get(checkAuth,todoController.getAllTodo)      

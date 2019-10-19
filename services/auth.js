@@ -15,6 +15,7 @@ const jwtsecret = require('../config/secret');
           if (!bcrypt.compareSync(params.password || '', user.password))
               throw new Error('Authentication failed. Wrong password.');
           const payload = {
+              userId:user.id,
               username: user.username,
               email: user.email,
               time: new Date()

@@ -5,7 +5,7 @@ const todoService = require('../services/index');
 
 const create = (req,res)=>{
   const todoPayload={
-    userId:req.body.user_id,
+    userId:req.user.userId,
     title:req.body.title,
     description:req.body.description,
     label:req.body.label,

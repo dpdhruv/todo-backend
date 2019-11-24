@@ -16,7 +16,7 @@ var table = "Todos";
 var Todo = sequelize.define(
   table,
   {
-    todo_id: {
+    id: {
       type: Sequelize.UUID,
       primaryKey: true,
       allowNull: false,

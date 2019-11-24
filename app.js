@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var pg = require('pg');
+var cors = require('cors');
 pg.defaults.ssl = true;
 
 var indexRouter = require('./routes/index');
@@ -17,6 +18,8 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use(bodyParser.json());
+
+app.use(cors())
 
 // const Sequelize = require('sequelize');
 // const sequelize = new Sequelize('postgres://dhsgikqbiryffp:15a2dce54278dc5411abfa654a7cc296b0d41fae3f2de48ba02481644927de9d@ec2-54-225-72-238.compute-1.amazonaws.com:5432/d5udu3publejm5');
